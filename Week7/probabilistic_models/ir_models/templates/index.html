@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Probabilistic Models</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+      }
+
+      h1 {
+        color: #333;
+        text-align: center;
+      }
+
+      h2 {
+        color: #555;
+        margin-top: 20px;
+      }
+
+      p {
+        color: #666;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Model Results</h1>
+      {% if ranked_docs %}
+      <h2>Interference Model</h2>
+      <p>Ranked Documents: {{ ranked_docs }}</p>
+      {% endif %}
+      {% if prob %}
+      <h2>Belief Network</h2>
+      <p>Relevance Probability: {{ prob }}</p>
+      {% endif %}
+    </div>
+  </body>
+
+</html>

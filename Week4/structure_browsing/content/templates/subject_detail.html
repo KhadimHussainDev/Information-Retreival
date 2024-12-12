@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ subject.name }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  </head>
+
+  <body>
+    <header>
+      <h1>{{ subject.name }}</h1>
+      <p>{{ subject.description }}</p>
+    </header>
+    <main>
+      <button onclick="history.back()">Go Back</button>
+      <h2>Topics</h2>
+      <ul>
+        {% for topic in subject.topics.all %}
+        <li>
+          <h3>{{ topic.name }}</h3>
+          <p>{{topic.content}}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </main>
+    <footer>
+      <a href="{% url 'course_detail' subject.course.id %}">Back to {{ subject.course.name }}</a>
+    </footer>
+  </body>
+
+</html>

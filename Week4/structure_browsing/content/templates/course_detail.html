@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ course.name }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  </head>
+
+  <body>
+    <header>
+      <h1>{{ course.name }}</h1>
+      <p>{{ course.description }}</p>
+    </header>
+    <main>
+        <button onclick="history.back()">Go Back</button>
+      <h2>Subjects</h2>
+      <ul>
+        {% for subject in course.subjects.all %}
+        <li>
+          <a href="{% url 'subject_detail' subject.id %}">
+            {{ subject.name }}
+          </a>
+          <p>{{ subject.description }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </main>
+    <footer>
+      <a href="{% url 'course_list' %}">Back to Courses</a>
+    </footer>
+  </body>
+
+</html>

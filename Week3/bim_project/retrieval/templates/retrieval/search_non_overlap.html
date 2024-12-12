@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Overlapping Search</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        color: #333;
+        margin-top: 20px;
+      }
+
+      form {
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 300px;
+        margin-right: 10px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      hr {
+        width: 80%;
+        border: 1px solid #ccc;
+        margin: 20px 0;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      li {
+        background-color: #fff;
+        padding: 15px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 80%;
+      }
+
+      p {
+        color: #666;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Search Non-Overlapping Documents</h1>
+    <form method="get">
+      <input type="text" name="query" placeholder="Enter terms"
+        value="{{ query }}">
+      <button type="submit">Search</button>
+    </form>
+    <hr>
+    <h2>Results:</h2>
+    <ul>
+      {% for document in results %}
+      <li><strong>{{ document.title }}</strong></li>
+      {% empty %}
+      <p>No results found.</p>
+      {% endfor %}
+    </ul>
+  </body>
+
+</html>
